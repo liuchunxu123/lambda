@@ -1,0 +1,95 @@
+server:
+  port: 5000
+  servlet:
+    context-path: /web
+  address: 0.0.0.0
+spring:
+  profiles:
+    active: test
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-request-size: 200MB
+      max-file-size: 200MB
+#springfox.documentation.swagger.v2.path: /manage-docs
+
+mybatis-plus:
+  mapper-locations: classpath:/**/mapper/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.renwei.uz.entity
+
+logging:
+  config: classpath:logback.xml
+
+auth:
+  token:
+    secret_key: SecretKey012345678901234567890123456789012345678901234567890123456789
+    # token 有效期間(単位:秒)
+    ttl: 18000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health, beans"
+      base-path: "/monitor"
+
+# 代码生成器配置
+codegen:
+  # 下载代码文件名称
+  downloadFileName: uz-admin-code.zip
+  # 后端项目名称
+  backendAppName: uz-coupon-manage-api
+  # 前端项目名称
+  frontendAppName: uz-coupon-manage-front
+  # 默认配置
+  defaultConfig:
+    author: wyd
+    moduleName: system
+  # 排除数据表
+  excludeTables:
+    - gen_config
+    - gen_field_config
+  ## 模板配置
+  templateConfigs:
+    API:
+      templatePath: codegen/api.ts.vm
+      subpackageName: api
+      extension: .ts
+    VIEW:
+      templatePath: codegen/index.vue.vm
+      subpackageName: views
+      extension: .vue
+    Controller:
+      templatePath: codegen/controller.java.vm
+      subpackageName: controller
+    Service:
+      templatePath: codegen/service.java.vm
+      subpackageName: service
+    ServiceImpl:
+      templatePath: codegen/serviceImpl.java.vm
+      subpackageName: service.impl
+    Mapper:
+      templatePath: codegen/mapper.java.vm
+      subpackageName: mapper
+    MapperXml:
+      templatePath: codegen/mapper.xml.vm
+      subpackageName: mapper
+      extension: .xml
+    Converter:
+      templatePath: codegen/converter.java.vm
+      subpackageName: converter
+    Query:
+      templatePath: codegen/query.java.vm
+      subpackageName: model.query
+    Form:
+      templatePath: codegen/form.java.vm
+      subpackageName: model.form
+    VO:
+      templatePath: codegen/vo.java.vm
+      subpackageName: model.vo
+    Entity:
+      templatePath: codegen/entity.java.vm
+      subpackageName: model.entity

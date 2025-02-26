@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: fg_user
+    password: MzC$M~%D-BwS)A&p
+    url: jdbc:mysql://aveda-db-instance-1.cngn7mnzxoln.ap-northeast-1.rds.amazonaws.com:3306/aveda_test?serverTimezone=Asia/Tokyo&useUnicode=true&characterEncoding=UTF-8
