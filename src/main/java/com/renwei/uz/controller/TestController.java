@@ -24,12 +24,12 @@ public class TestController {
 
     @PostMapping("/demo1")
     public String demo1(@RequestBody GoodsDetailDto dto) {
-        return "demo1";
+        return "testdemo1";
     }
 
     @PostMapping("/demo2")
     public String getGoodsDetailTemp(@RequestBody GoodsDetailDto dto) {
-        return "demo2";
+        return "testdemo2";
     }
 
 }
