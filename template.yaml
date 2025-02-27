@@ -7,7 +7,7 @@ Resources:
   lambdatest:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: ./target/uz-coupon-manage-api-1.0.0-SNAPSHOT.jar
+      CodeUri: .
       Description: ''
       MemorySize: 512
       Timeout: 15
