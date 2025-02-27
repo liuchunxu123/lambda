@@ -24,7 +24,7 @@ public class TestController {
 
     @PostMapping("/demo1")
     public String demo1(@RequestBody GoodsDetailDto dto) {
-        return "test111111111demo1";
+        return "test333333333demo1";
     }
 
     @PostMapping("/demo2")
