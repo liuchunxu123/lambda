@@ -1,5 +1,3 @@
-# 此 AWS SAM 模板是根据您的函数配置生成的。如果您的函数有一个或多个触发器，则请注意与这些触发器关联的 AWS 资源未在此模板中完全指定，并且 AWS
-# 资源包含占位符值。在 AWS 基础架构编辑器或您最喜欢的 IDE 中打开此模板并对其进行修改，以指定具有其他 AWS 资源的无服务器应用程序。
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: An AWS Serverless Application Model template describing your function.
@@ -7,7 +5,7 @@ Resources:
   lambdatest:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: .
+      CodeUri: s3://aveda-resource/uz-coupon-manage-api-1.0.0-SNAPSHOT.jar
       Description: ''
       MemorySize: 512
       Timeout: 15
