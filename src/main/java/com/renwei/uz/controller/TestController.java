@@ -29,7 +29,7 @@ public class TestController {
 
     @PostMapping("/demo2")
     public String getGoodsDetailTemp(@RequestBody GoodsDetailDto dto) {
-        return "testdemo2";
+        return "test222222222222demo2";
     }
 
 }
