@@ -27,6 +27,6 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, GoodsEntity> impl
 
     @Override
     public String getGoodsDetailTemp(GoodsDetailDto dto) {
-        return "1023562545666";
+        return "000000000000000000";
     }
 }
