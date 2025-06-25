@@ -23,6 +23,7 @@ mybatis-plus:
 logging:
   config: classpath:logback.xml
 
+
 auth:
   token:
     secret_key: SecretKey012345678901234567890123456789012345678901234567890123456789
