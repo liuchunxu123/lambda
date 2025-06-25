@@ -1,0 +1,51 @@
+version: 0.2
+
+env:
+  variables:
+    AWS_DEFAULT_REGION: ap-northeast-1         # ← 替换成你的实际区域
+    ARTIFACT_BUCKET: aveda-resource            # ← 你的 S3 Bucket 名称
+    STACK_NAME: lambda-test-cloudFormation     # ← CloudFormation 堆栈名称
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto21
+      python: 3.11
+    commands:
+      - echo "Installing dependencies..."
+      - pip install --upgrade pip
+      - pip install --upgrade aws-sam-cli
+      - sam --version
+
+  pre_build:
+    commands:
+      - echo "Starting pre_build phase..."
+      - sam validate
+
+  build:
+    commands:
+      - echo "Starting build phase..."
+      - sam build --use-container
+
+  post_build:
+    commands:
+      - |
+        echo "Packaging SAM application..."
+        sam package \
+          --region $AWS_DEFAULT_REGION \
+          --s3-bucket $ARTIFACT_BUCKET \
+          --output-template-file packaged-template.yaml
+
+      - |
+        echo "Deploying SAM application..."
+        sam deploy \
+          --template-file packaged-template.yaml \
+          --stack-name $STACK_NAME \
+          --capabilities CAPABILITY_IAM \
+          --region $AWS_DEFAULT_REGION \
+          --no-fail-on-empty-changeset
+
+artifacts:
+  files:
+    - packaged-template.yaml
+  name: BuildOutput

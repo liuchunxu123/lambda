@@ -95,7 +95,6 @@ Resources:
                 - logs:CreateLogStream
                 - logs:PutLogEvents
               Resource: '*'
-      RecursiveLoop: Terminate
       SnapStart:
         ApplyOn: PublishedVersions
       VpcConfig:
