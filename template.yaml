@@ -105,20 +105,10 @@ Resources:
           - subnet-07adaf1afc08f0f79
         Ipv6AllowedForDualStack: false
       Events:
-        Api1:
+        ApiGatewayEvent:
           Type: Api
           Properties:
-            Path: /gateway_test/getGoodsDetail
-            Method: POST
-        Api2:
-          Type: Api
-          Properties:
-            Path: /gateway_test/{gateway_test+}
-            Method: ANY
-        Api3:
-          Type: Api
-          Properties:
-            Path: /{gateway_test+}
+            Path: /gateway_test/{proxy+}
             Method: ANY
       RuntimeManagementConfig:
         UpdateRuntimeOn: Auto
