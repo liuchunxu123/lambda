@@ -9,7 +9,7 @@ Resources:
       Description: ''
       MemorySize: 512
       Timeout: 15
-      Handler: com.renwei.uz.LambdaHandler::handleRequest
+      Handler: com.renwei.uz.lambda.LambdaHandler::handleRequest
       Runtime: java21
       Architectures:
         - x86_64
